@@ -58,5 +58,6 @@ export interface QuillConfig {
     strict?: boolean;
     trackChanges?: 'user' | 'all';
     defaultEmptyValue?: any;
+    sanitize?: boolean;
 }
 export declare const QUILL_CONFIG_TOKEN: InjectionToken<QuillConfig>;

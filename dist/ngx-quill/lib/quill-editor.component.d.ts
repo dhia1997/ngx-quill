@@ -4,6 +4,7 @@ import QuillType, { Delta } from 'quill';
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, Injector, NgZone, OnChanges, OnDestroy, Renderer2, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, Validator } from '@angular/forms';
 import { QuillService } from './quill.service';
+import * as i0 from "@angular/core";
 export interface Range {
     index: number;
     length: number;
@@ -56,7 +57,7 @@ export declare abstract class QuillEditorBase implements AfterViewInit, ControlV
     required: boolean;
     formats?: string[] | null;
     customToolbarPosition: 'top' | 'bottom';
-    sanitize: boolean;
+    sanitize?: boolean;
     styles: any;
     strict: boolean;
     scrollingContainer?: HTMLElement | string | null;
@@ -87,11 +88,12 @@ export declare abstract class QuillEditorBase implements AfterViewInit, ControlV
     onValidatorChanged: () => void;
     private document;
     private subscription;
+    private quillSubscription;
     constructor(injector: Injector, elementRef: ElementRef, cd: ChangeDetectorRef, domSanitizer: DomSanitizer, platformId: any, renderer: Renderer2, zone: NgZone, service: QuillService);
     static normalizeClassNames(classes: string): string[];
     valueGetter: (quillEditor: QuillType, editorElement: HTMLElement) => string | any;
     valueSetter: (quillEditor: QuillType, value: any) => any;
-    ngAfterViewInit(): Promise<void>;
+    ngAfterViewInit(): void;
     selectionChangeHandler: (range: Range | null, oldRange: Range | null, source: string) => void;
     textChangeHandler: (delta: Delta, oldDelta: Delta, source: string) => void;
     editorChangeHandler: (event: 'text-change' | 'selection-change', current: any | Range | null, old: any | Range | null, source: string) => void;
@@ -119,7 +121,11 @@ export declare abstract class QuillEditorBase implements AfterViewInit, ControlV
     };
     private addQuillEventListeners;
     private dispose;
+    static ɵfac: i0.ɵɵFactoryDeclaration<QuillEditorBase, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<QuillEditorBase, never, never, { "format": "format"; "theme": "theme"; "modules": "modules"; "debug": "debug"; "readOnly": "readOnly"; "placeholder": "placeholder"; "maxLength": "maxLength"; "minLength": "minLength"; "required": "required"; "formats": "formats"; "customToolbarPosition": "customToolbarPosition"; "sanitize": "sanitize"; "styles": "styles"; "strict": "strict"; "scrollingContainer": "scrollingContainer"; "bounds": "bounds"; "customOptions": "customOptions"; "customModules": "customModules"; "trackChanges": "trackChanges"; "preserveWhitespace": "preserveWhitespace"; "classes": "classes"; "trimOnValidation": "trimOnValidation"; "linkPlaceholder": "linkPlaceholder"; "compareValues": "compareValues"; "filterNull": "filterNull"; "debounceTime": "debounceTime"; "defaultEmptyValue": "defaultEmptyValue"; "valueGetter": "valueGetter"; "valueSetter": "valueSetter"; }, { "onEditorCreated": "onEditorCreated"; "onEditorChanged": "onEditorChanged"; "onContentChanged": "onContentChanged"; "onSelectionChanged": "onSelectionChanged"; "onFocus": "onFocus"; "onBlur": "onBlur"; }, never>;
 }
 export declare class QuillEditorComponent extends QuillEditorBase {
     constructor(injector: Injector, elementRef: ElementRef, cd: ChangeDetectorRef, domSanitizer: DomSanitizer, platformId: any, renderer: Renderer2, zone: NgZone, service: QuillService);
+    static ɵfac: i0.ɵɵFactoryDeclaration<QuillEditorComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<QuillEditorComponent, "quill-editor", never, {}, {}, never, ["[quill-editor-toolbar]"]>;
 }
